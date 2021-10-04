@@ -21,5 +21,5 @@ class Deque {
     private: 
         int size; 
         DLinkedList list; 
-    friend class DequeList;
+        friend class DequeList;
 };

@@ -49,7 +49,7 @@ void DLinkedList::addNode(DequeNode* givenNode, std:: const string& data ){
 
     DequeNode* newNode =new DequeNode;
 
-    //Question: possible problem in statement below
+    //Question: possible problem in statement below, the word 'data' is not highlighted in blue, was wondering if it is accessible or not
     newNode->data=data;
 
     newNode->next=givenNode;
