@@ -1,4 +1,4 @@
-//cpp for doubly linked list 
+//hpp for DLinkedList 
 
 #ifndef DLINKEDLIST_HPP 
 #define DLINKEDLIST_HPP
@@ -6,9 +6,10 @@
 #include <string> 
 
 class DequeNode { //DeequeNode class 
+
     public: 
-        DequeNode(); //constructor 
-        ~DequeNode(); //deconstructor 
+        DequeNode(); //default constructor 
+        ~DequeNode(); //default deconstructor 
 
     private: 
         std::string data; //data that will be help 
@@ -21,15 +22,16 @@ class DLinkedList {
     public: 
         DLinkedList(); //constructor
         ~DLinkedList(); //Deconstructor
-        std::string front() const; //returns the element at the front of the list 
-        std::string back() const; //returns the elemetn at the end of the list 
+        const std::string front() const; //returns the element at the front of the list 
+        const std::string back() const; //returns the elemetn at the end of the list 
         void addEmpty(DequeNode* newNode); //add a new element to an emtpy list 
-        bool empty();
-        
-        void addFront(const std::string& data);
-        void addBack(const std::string& data);
-        void removeFront();  
-        void removeBack(); 
+        bool empty(); //checks if empty 
+        void addNode(DequeNode* givenNode, const std::string& data ); //adds a node before a given Node
+        void addFront(const std::string& data); //adds a node to the front 
+        void addBack(const std::string& data); //adds a node to the back 
+        void removeNode(DequeNode* givenNode); //removes the given Node
+        void removeFront(); //removes a node from the front 
+        void removeBack(); //removes a node from the back 
 
     private: 
         int size; //the size of the that list 

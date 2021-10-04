@@ -7,7 +7,7 @@ class NoationConverter : public NotationConverterInterface {
 
 private: 
     Deque notation; 
-    
+
 public: 
     std::string postfixToInfix(std::string inStr); //post fix to infix 
     std::string postfixToPrefix(std::string inStr); //post fix to prefix 
@@ -17,6 +17,6 @@ public:
     std::string prefixToPostfix(std::string inStr); //prefix to postfix 
 
     bool operation(const char& x); // used to check if operation 
-    bool variable(const char& y); //used to check if variable 
+    bool variable(const char& x); //used to check if variable 
     
 };
