@@ -1,6 +1,6 @@
 //cpp for notation converter 
 
-#include "NotationConvert.hpp"
+#include "NotationConverter.hpp"
 
 bool variable(char& x) {
     bool lowerCase = (x >= 'a' && x <= 'z');
@@ -11,11 +11,48 @@ bool variable(char& x) {
 }
 
 bool operation(char& x) { 
-    bool add = (x == '+'); 
-    bool subract = (x == '-'); 
-    bool times = (x == '*'); 
-    bool divide = (x == '/'); 
-    bool operation = (add || subract || times || divide); 
-     
-    return operation; 
+    switch(x) {
+        case '+':
+        case '-':
+        case '/':
+        case '*':
+            return true; 
+        default:
+             return false; 
+    }
 }
+
+std::string NotationConverter::postfixToInfix(std::string inStr){
+
+}
+
+std::string NotationConverter::postfixToPrefix(std::string inStr){
+
+}  
+
+std::string NotationConverter::infixToPrefix(std::string inStr){
+
+}
+
+std::string NotationConverter::infixToPostfix(std::string inStr){
+
+}
+
+std::string NotationConverter::prefixToInfix(std::string inStr){
+
+}
+
+std::string NotationConverter::prefixToPostfix(std::string inStr){
+
+}
+
+// used to check if operation 
+bool NotationConverter::operation(const char& x){
+
+} 
+
+//used to check if variable 
+bool NotationConverter::variable(const char& y){
+
+}
+

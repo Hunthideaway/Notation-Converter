@@ -1,14 +1,17 @@
 
 #include "NotationConverterInterface.hpp"
 #include "Deque.hpp" 
-#include "DequeList.hpp"
+#include "DLinkedList.hpp"
 
-class NoationConverter : public NotationConverterInterface { 
+class NotationConverter : public NotationConverterInterface { 
 
 private: 
-    Deque notation; 
+    Deque notation; //converter for notations
 
 public: 
+    NotationConverter(); //constructor
+    ~NotationConverter(); //deconstructor
+    void clear(); //helper function to clear the entire deque
     std::string postfixToInfix(std::string inStr); //post fix to infix 
     std::string postfixToPrefix(std::string inStr); //post fix to prefix 
     std::string infixToPrefix(std::string inStr); //infix to prefix 
