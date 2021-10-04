@@ -23,28 +23,36 @@ class DequeNode { //DequeNode class
 class DLinkedList { 
     public: 
         DLinkedList(); //constructor
+
         ~DLinkedList(); //Deconstructor
 
-        bool empty();  //checks if linked list is empty
+        const std::string front() const; //returns the element at the front of the list 
 
-        std::string front() const; //returns the element at the front of the list 
-
-        std::string back() const; //returns the elemetn at the end of the list 
+        const std::string back() const; //returns the element at the end of the list 
 
         void addEmpty(DequeNode* newNode); //add a new element to an emtpy list 
+
+        bool empty();  //checks if linked list is empty
        
-        
+        void addNode(DequeNode* givenNode, std:: const string& data ); //adds a node before a given Node
+
         void addFront(const std::string& data); //adds an element to the front
 
         void addBack(const std::string& data);      //adds an element to the back
+
+        void removeNode(DequeNode* givenNode); //removes the given Node
 
         void removeFront();     //removes the front element
 
         void removeBack();  //removes the last element
 
+        
+
     private: 
         int size; //the size of the that list 
+
         DequeNode* header; //pointer to the start of the list 
+
         DequeNode* trailer; //pointer to the end of the list 
 };
 
