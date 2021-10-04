@@ -1,4 +1,4 @@
-//cpp for doubly linked list 
+//cpp for DLinkedList 
 
 #include "DLinkedList.hpp" 
 
@@ -13,68 +13,55 @@ DLinkedList::DLinkedList() { //constructor
 }
 
 DLinkedList::~DLinkedList() { //deconstructor 
-    while(!empty()) { 
+    while(!empty()) { //if not empty 
         removeFront(); //remove the front value until the list is empty 
     }
     delete trailer; //finally remove the trailer  
     delete header; //remov the header 
 }
+const std::string DLinkedList::front() 
+    {return header->next->data;}
 
-//returns the element at the front of the list
- const std::string DLinkedList:: front() const {
-    
-        return header->next->data; 
- }  
+const std::string DLinkedList::back()
+    {return trailer->prev->data;};
 
-const std::string DLinkedList:: back() const {    //returns the element at the end of the list 
-    
-    return trailer->prev->data; 
-}
-
-void DLinkedList::addEmpty(DequeNode* newNode) { //function to add a node to an empty list.
-
+void DLinkedList::addEmpty(DequeNode* newNode) { //function to add a node to an empty list. 
     header->next=newNode; //pointer from head to newNode 
     newNode->next=trailer; //pointer from newNode to trailer
     newNode->prev=header;  //pointer from newNode to head 
     trailer->prev=newNode; //pointer from trailer to newNode  
 } 
 
-bool DLinkedList::empty(){
+bool DLinkedList::empty(){//check if the list is empty 
     return (header->next==trailer);
+}
+
+void DLinkedList::addNode(DequeNode* givenNode, const std::string& data ){ //adding a node to the given location in the deque
+    DequeNode* newNode =new DequeNode; //create a new node 
+    newNode->data=data; //link data to new node 
+    newNode->next=givenNode; //link the new node to the given node 
+    newNode->prev=givenNode->prev; //set new nodes previous to the given nodes previous 
+    givenNode->prev->next= newNode; //given nodes last values next value is set to new node 
+    givenNode->prev = newNode; //given nodes previous is set to new node 
 
 }
 
-//the function below add a newNode before the givenNode
-void DLinkedList::addNode(DequeNode* givenNode, std:: const string& data ){
-
-    DequeNode* newNode =new DequeNode;
-
-    //Question: possible problem in statement below, the word 'data' is not highlighted in blue, was wondering if it is accessible or not
-    newNode->data=data;
-
-    newNode->next=givenNode;
-
-    newNode->prev=givenNode->prev;
-
-    givenNode->prev->next= newNode;
-
-    givenNode->prev = newNode;
-
-}
-
-
-void DLinkedList:: addFront(const std::string& data){
-    addNode(header->next, data);
+void DLinkedList::addFront(const std::string& data) { //add a node to the front 
+    DequeNode* newNode = new DequeNode; //allocate memory for the node 
+    if(empty()) //if empty 
+        addEmpty(newNode); //run node through addEmpty 
+    else
+   addNode(header->next, data); //else run the data through addNode
 }
 
 void DLinkedList:: addBack(const std::string& data){
-    addNode(trailer, data);
+        DequeNode* newNode = new DequeNode; //allocate memory for the node 
+    if(empty()) //if empty 
+        addEmpty(newNode); //run node through addEmpty 
+    else
+        addNode(trailer, data); //else run the data through addNode
 }
-
-
-//the function below removes the givenNode
-
-void removeNode(DequeNode* givenNode){
+void DLinkedList::removeNode(DequeNode* givenNode){
     DequeNode* prevNode = givenNode->prev;
     DequeNode* afterNode = givenNode->next;
 
@@ -82,12 +69,19 @@ void removeNode(DequeNode* givenNode){
     afterNode->prev=prevNode;
 
     delete givenNode;
+    size--;
 }
 
 void DLinkedList:: removeFront(){
+    if(empty())
+        throw("Empty List."); 
+    else
     removeNode(header->next);
 }
 
 void DLinkedList:: removeBack(){
+    if(empty())
+        throw("Empty List."); 
+    else
     removeNode(trailer->prev);
 }
