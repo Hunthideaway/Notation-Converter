@@ -1,6 +1,11 @@
 //cpp for notation converter
 //operand is w and y if  w + y
 //operation is +
+/*
+Authors: Randall Hunt, Raed Seraj 
+Parts: Driver: Randall %50 , Navigator: Raed %50 
+
+*/
 #include "NotationConverter.hpp"
 
 bool NotationConverter::variable(char x) //checks to ensure a valid character is entered.

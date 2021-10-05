@@ -1,4 +1,9 @@
 //hpp for DLinkedList
+/*
+Authors: Randall Hunt, Raed Seraj 
+Parts: Driver: Randall %50 , Navigator: Raed %50 
+
+*/
 
 #ifndef DLINKEDLIST_HPP
 #define DLINKEDLIST_HPP

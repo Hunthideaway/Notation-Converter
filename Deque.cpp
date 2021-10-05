@@ -1,4 +1,9 @@
 //hpp for the deque
+/*
+Authors: Randall Hunt, Raed Seraj 
+Parts: Driver: Randall %50 , Navigator: Raed %50 
+
+*/
 
 #include "Deque.hpp"
 
