@@ -1,49 +1,54 @@
-//hpp for the deque 
+//hpp for the deque
 
 #include "Deque.hpp"
 
-Deque::Deque() { //constructor 
-    size = 0; //initialize size 
+Deque::Deque()
+{          //constructor
+    s = 0; //initialize size
+}
+Deque::~Deque()
+{ //deconstructor
 }
 
-int Deque::size() const{
-    return size;
-} 
-
-const Elem& front() const throw(){ // first element 
-    if(empty()) //if empty 
-        throw("Empty Deque."); //return the deque is empty 
-    return list.top(); //return the top of the deque 
-} 
-
-const Elem& back() const throw(){ // last element
-    if(empty()) //if the list is empty 
-        throw ("Empty Deque."); //return the list is empty 
-    return list.end(); //return the list end 
-}  
-
-void Deque::insertFront(const Elem& e){ //inserting at the front 
-    list.addFront(e); //uses list to insert new element 
-    size++; //increment the size 
+int Deque::size() const
+{             //return the size of the list
+    return s; //size
 }
 
-void Deque::insertBack(const Elem& e){ //insert at the end 
-    list.addBack(e); //uses list to insert a new element 
-    size++; //increments the size 
+bool Deque::empty() const
+{                  //check is empty
+    return s == 0; //empty if size = 0
+}
+const std::string &Deque::front() const throw()
+{                        // get thefirst element
+    return list.front(); //return the top of the deque
 }
 
-void Deque::removeFront() throw (){ //remove an element from the front 
-    if (empty()){ //in the list is empty 
-        throw("This is an empty deque."); //throw empty deque 
-    }
-    list.removeFront();
-    size--;
+const std::string &Deque::back() const throw()
+{                       // get the last element
+    return list.back(); //return the list end
 }
 
-void Deque::removeBack() throw (){
-    if (empty()){
-        throw("This is an empty deque.");
-    }
-    list.removeBack();
-    size--;
-}  
+void Deque::insertFront(const std::string &e)
+{                     //inserting at the front
+    list.addFront(e); //uses list to insert new element
+    s++;              //increment the size
+}
+
+void Deque::insertBack(const std::string &e)
+{                    //insert at the end
+    list.addBack(e); //uses list to insert a new element
+    s++;             //increments the size
+}
+
+void Deque::removeFront() throw()
+{                       //remove an element from the front
+    list.removeFront(); //using list to remove element
+    s--;                //decrement size
+}
+
+void Deque::removeBack() throw()
+{                      //remove an element from the end
+    list.removeBack(); //using list to remove element
+    s--;               //decrement
+}

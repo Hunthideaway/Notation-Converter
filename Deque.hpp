@@ -1,24 +1,22 @@
-// cpp for deque 
-#include "DLinkedList.hpp" 
-#include "DLinkedList.cpp"
-typedef std::string Elem;
+// cpp for deque
+#include "DLinkedList.hpp"
 
-class Deque { 
-    public: 
-        Deque(); //constructor
-        int size() const; //gets the size of the deque 
-        bool empty() {return list.empty();}; //returns if the deque is empty  
-        const Elem& front() const throw(); // first element
-        const Elem& back() const throw(); // last element
- 
+class Deque
+{
+public:
+    Deque();                                  //constructor
+    ~Deque();                                 //deconstructor
+    int size() const;                         //gets the size of the deque
+    bool empty() const;                       //returns if the deque is empty
+    const std::string &front() const throw(); // gets the first element
+    const std::string &back() const throw();  // gets the last element
 
-        void insertFront(const Elem& e); 
-        void insertBack(const Elem& e);
-        void removeFront();
-        void removeBack();  
+    void insertFront(const std::string &e); //function to insert at the front
+    void insertBack(const std::string &e);  //function to insert at the end
+    void removeFront() throw();             //function to remove at the front
+    void removeBack() throw();              //function to remove at the end
 
-    private: 
-        int size; 
-        DLinkedList list; 
-    friend class DequeList;
+private:
+    int s;            //helps keep track of the size
+    DLinkedList list; //list for data
 };
